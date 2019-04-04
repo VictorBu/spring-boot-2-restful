@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -47,7 +48,7 @@ public class TvSeriesController {
     }
 
     @PostMapping
-    public TvSeriesDto insertOne(@RequestBody TvSeriesDto tvSeriesDto) {
+    public TvSeriesDto insertOne(@Valid @RequestBody TvSeriesDto tvSeriesDto) {
         if(log.isTraceEnabled()) {
             log.trace("这里应该写新增tvSeriesDto到数据库的代码, 传递进来的参数是：" + tvSeriesDto);
         }
