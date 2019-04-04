@@ -1,4 +1,9 @@
-
+spring:
+  jackson:
+    date-format: yyyy-MM-dd # 如果使用字符串型表示，用这行设置格式
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false # 使用数值 timestamp 表示日期，true 时会忽略 date-format
 
 logging:
   file: target/app.log
