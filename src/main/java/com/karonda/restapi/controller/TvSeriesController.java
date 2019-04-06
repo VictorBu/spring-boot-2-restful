@@ -1,9 +1,12 @@
 package com.karonda.restapi.controller;
 
 import com.karonda.restapi.dto.TvSeriesDto;
+import com.karonda.restapi.pojo.TvSeries;
+import com.karonda.restapi.service.TvSeriesService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -20,15 +23,16 @@ import java.util.*;
 @RequestMapping("/tvseries")
 public class TvSeriesController {
     private final Log log = LogFactory.getLog(TvSeriesController.class);
+
+    @Autowired
+    TvSeriesService tvSeriesService;
     
     @GetMapping
-    public List<TvSeriesDto> getAll() {
+    public List<TvSeries> getAll() {
         if(log.isTraceEnabled()) {
             log.trace("getAll() ");
         }
-        List<TvSeriesDto> list = new ArrayList<>();
-        list.add(createWestWorld());
-        list.add(createPoi());
+        List<TvSeries> list = tvSeriesService.getAllSeries();
         
         return list;
     }

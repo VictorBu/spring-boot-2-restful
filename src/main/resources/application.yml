@@ -1,9 +1,18 @@
 spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tvseries?useSSL=false
+    username: root
+    password: root
   jackson:
     date-format: yyyy-MM-dd # 如果使用字符串型表示，用这行设置格式
     time-zone: GMT+8
     serialization:
       write-dates-as-timestamps: false # 使用数值 timestamp 表示日期，true 时会忽略 date-format
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # 下划线转驼峰命名
 
 logging:
   file: target/app.log
