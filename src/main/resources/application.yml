@@ -13,6 +13,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true # 下划线转驼峰命名
+  mapper-locations: classpath:com.karonda.restapi.dao/*.xml # 配置 mapper xml 文件所在路径
 
 logging:
   file: target/app.log

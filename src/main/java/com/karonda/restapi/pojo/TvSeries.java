@@ -1,7 +1,5 @@
 package com.karonda.restapi.pojo;
 
-import com.karonda.restapi.dto.TvCharacterDto;
-
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -15,8 +13,8 @@ public class TvSeries {
     @DecimalMin("1")
     private int seasonCount;
     // @Valid表示要级联校验
-    @NotNull @Size(min=2)
-    private List<@Valid TvCharacterDto> tvCharacters;
+    @NotNull @Size(min=1)
+    private List<@Valid TvCharacter> tvCharacters;
 
     // 如果想用long型的timestamp表示日期，可用： @JsonFormat(shape = JsonFormat.Shape.NUMBER)
     // @JsonFormat(timezone="GMT+8", pattern="yyyy-MM-dd")
@@ -58,11 +56,11 @@ public class TvSeries {
         this.seasonCount = seasonCount;
     }
 
-    public List<TvCharacterDto> getTvCharacters() {
+    public List<TvCharacter> getTvCharacters() {
         return tvCharacters;
     }
 
-    public void setTvCharacters(List<TvCharacterDto> tvCharacters) {
+    public void setTvCharacters(List<TvCharacter> tvCharacters) {
         this.tvCharacters = tvCharacters;
     }
 
